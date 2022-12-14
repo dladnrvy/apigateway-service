@@ -3,8 +3,8 @@ server:
 
 eureka:
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    register-with-eureka: true
+    fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka
 
@@ -14,26 +14,17 @@ spring:
     name: apigateway-service
   cloud:
     gateway:
-      default-filters:
-        - name: GlobalFilter
-          args:
-            baseMessage: Spring Cloud Gateway Global Filter
-            preLogger: true
-            postLogger: true
       routes:
-        - id: first-service
-          uri: http://localhost:8081/
+        - id: point-service
+          uri: lb://POINT-SERVICE
           predicates:
-            - Path=/first-service/**
-          filters:
-#            - AddRequestHeader=first-request, first-request-header2
-#            - AddResponseHeader=first-request, first-response-header2
-             - CustomFilter
-        - id: second-service
-          uri: http://localhost:8082/
+            - Path=/point/**
+        - id: barcode-service
+          uri: lb://BARCODE-SERVICE
           predicates:
-            - Path=/second-service/**
-          filters:
-#            - AddRequestHeader=second-request, second-request-header2
-#            - AddResponseHeader=second-request, second-response-header2
-             - CustomFilter
+            - Path=/barcode/**
+        - id: partner-service
+          uri: lb://PARTNER-SERVICE
+          predicates:
+            - Path=/partner/**
+
