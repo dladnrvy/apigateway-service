@@ -21,3 +21,11 @@
 | POST | http://127.0.0.1:8000/point/save | 포인트적립 | 
 | POST | http://127.0.0.1:8000/point/use  | 포인트사용 |
 | GET | http://127.0.0.1:8000/point/result/find  | 내역조회 |
+
+#### TODO
+공통
+1. kafka 를 통한 DB연결
+2. Event Souring 패턴, Saga 패턴등을 통한 트랜잭션 관리 적용
+
+바코드 서버
+1. Crockford base-32를 통한 중복하지않는 12자리 코드생성
