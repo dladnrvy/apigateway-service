@@ -24,8 +24,6 @@
 
 #### TODO
 공통
-1. kafka 를 통한 DB연결
-2. Event Souring 패턴, Saga 패턴등을 통한 트랜잭션 관리 적용
-
-바코드 서버
-1. Crockford base-32를 통한 중복하지않는 12자리 코드생성
+1. 코드 리팩토링
+2. kafka 를 통한 DB연결
+3. Event Souring 패턴, Saga 패턴등을 통한 트랜잭션 관리 적용
